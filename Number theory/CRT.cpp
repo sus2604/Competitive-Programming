@@ -37,6 +37,34 @@ if(k<p2) k+=p2;
 
 cout<<r1+k*p1<<endl;
 
+// -> for two equations in logN time 
+// if given n equations repeat n times with prev answer  -> O(n*logM)
+// or it can be implemented using extended euclid algo  get code from ChatGPT
+
+//  CRT for n equations  // iterative  method (intuitive)
+
+    vector<int> prime;    // mods
+    vector<int> rem;      // remainders
+	long long t = 0;
+	long long product = 1;
+	for(int i = 0; i < (int) prime.size(); ++i) {
+		if(num[i] != 0) {
+			while((t + rem[i]) % prime[i] != 0) {
+				t += product;
+			}
+			product *= prime[i];
+		}
+	}
+	cout<<t<<endl;
+
+    // gives answer in O(n*num[i])
+
+
+
+////////////
+
+Q -> 
+
 
 find x such that a^x mod p = b given a b and p p<=1e9
 1<=a<p 1<=b<p
