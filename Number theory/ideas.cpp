@@ -297,6 +297,33 @@ public:
     }
 };
 
+// store all the AND subarray end points
+
+    map<int,int> prev;
+        
+    for(int i=0;i<n;i++){
+
+        map<int,int> new_and;
+        
+        if(i>0){
+            for(auto &x:prev){
+                int and=(nums[i]&x.first);
+                new_gcd[and]=max(new_and[and],x.second);
+            }
+        }
+        new_and[nums[i]]=max(new_and[nums[i]],i);
+        prev=new_and;
+    }
+
+    //for each AND subarray ending at i -> we get all the AND subarrays end points
+
+
+
+but I decided to repeat it because it ties into the previous point. Assume there are nonnegative integers a1,a2,…,an such that a1+a2+⋯+an=m. Then there are only O(sqrt(m)) distinct values among a1,a2,…,an.
+
+
+
+
 
 
 
